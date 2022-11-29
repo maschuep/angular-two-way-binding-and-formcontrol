@@ -1,6 +1,6 @@
 <h1>Counter: {{ mycounter }}</h1>
 
-<app-test [(counter)]="mycounter"></app-test>
+<app-test [(counter)]="mycounter" (counterChange)="onCounterChange($event)"></app-test>
 
 <h1>Counter2: {{ counters.value | json }}</h1>
 

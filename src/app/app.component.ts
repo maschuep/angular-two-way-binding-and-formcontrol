@@ -17,4 +17,8 @@ export class AppComponent {
   a: { a: 999 };
 
   constructor(private fb: FormBuilder) {}
+
+  onCounterChange(e: any) {
+    console.log(e);
+  }
 }
