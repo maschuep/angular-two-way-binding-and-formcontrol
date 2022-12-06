@@ -13,7 +13,7 @@
   </app-reactive-test>
 </form>
 
-<h1>{{ subj$ | async }}</h1>
-<h1>{{ subj1$ | async }}</h1>
+<h1>s {{ (subj$ | async)?.a }}</h1>
+<h1>s1 {{ (subj1$ | async)?.a }}</h1>
 
 <button (click)="go()">increase</button>

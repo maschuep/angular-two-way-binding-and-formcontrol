@@ -15,13 +15,10 @@ export class AppComponent {
     counter2: new FormControl(0),
   });
 
-  a: { a: 999 };
+  public a = { a: 999 };
 
-  subj$ = new Subject<number>();
-  subj1$ = this.subj$.pipe(
-    map((d) => (d += 2)),
-    tap(console.log)
-  );
+  subj$ = new Subject<any>();
+  subj1$ = this.subj$.pipe(map((d) => ({ ...d, a: (d.a += 1) })));
 
   counter = 0;
 
@@ -32,6 +29,6 @@ export class AppComponent {
   }
 
   go() {
-    this.subj$.next(this.counter++);
+    this.subj$.next(this.a);
   }
 }
