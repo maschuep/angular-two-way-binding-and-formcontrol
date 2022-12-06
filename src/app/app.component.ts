@@ -1,5 +1,6 @@
-import { Component, VERSION } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormBuilder, FormControl } from '@angular/forms';
+import { map, tap, Subject } from 'rxjs';
 
 @Component({
   selector: 'my-app',
@@ -16,9 +17,21 @@ export class AppComponent {
 
   a: { a: 999 };
 
+  subj$ = new Subject<number>();
+  subj1$ = this.subj$.pipe(
+    map((d) => (d += 2)),
+    tap(console.log)
+  );
+
+  counter = 0;
+
   constructor(private fb: FormBuilder) {}
 
   onCounterChange(e: any) {
     console.log(e);
+  }
+
+  go() {
+    this.subj$.next(this.counter++);
   }
 }
