@@ -22,7 +22,20 @@ export class AppComponent {
 
   counter = 0;
 
+  test$ = new Subject<void>();
+
   constructor(private fb: FormBuilder) {}
+
+  ngOnInit() {
+    console.log('hello');
+    console.log(this.test$);
+    this.test$.subscribe();
+    this.test$.next();
+    this.test$.complete();
+    this.test$.complete();
+    this.test$.complete();
+    console.log(this.test$);
+  }
 
   onCounterChange(e: any) {
     console.log(e);
